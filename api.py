@@ -1,17 +1,25 @@
 from fastapi import FastAPI
 from refran import Refran
+from starlette.responses import RedirectResponse
 
 app = FastAPI()
 
 @app.get('/')
 def index():
-    # refran_message = Refran.getRandomRefran()
+    return RedirectResponse(url="/docs/")
+
+@app.get('/randomrefran/')
+def index():
     refran_message = Refran.getRandomRefran()
-    saying_message = Refran.getRandomSaying()
-    return {"welcome":  {
-        "refran": refran_message,
-        "saying": saying_message
-        }
+    return {
+        "refran": refran_message
     }
     		
 
+@app.get('/randomsaying/')
+def randomquote():
+    saying_message = Refran.getRandomSaying()
+    return {  
+        "saying": saying_message
+    }
+    		
