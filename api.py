@@ -9,7 +9,7 @@ def index():
     return RedirectResponse(url="/docs/")
 
 @app.get('/randomrefran/')
-def index():
+def randomrefran():
     refran_message = Refran.getRandomRefran()
     return {
         "refran": refran_message
@@ -17,7 +17,7 @@ def index():
     		
 
 @app.get('/randomsaying/')
-def randomquote():
+def randomsaying():
     saying_message = Refran.getRandomSaying()
     return {  
         "saying": saying_message
