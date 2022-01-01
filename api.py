@@ -13,7 +13,7 @@ class QuoteLanguage(str, Enum):
 app = FastAPI(
     title= "Random Quotes API",
     description="Random traditional quotes in Spanish and English",
-    version="0.0.1"
+    version="0.0.2"
 )
 
 @app.get('/')
