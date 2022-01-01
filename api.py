@@ -2,7 +2,12 @@ from fastapi import FastAPI
 from refran import Refran
 from starlette.responses import RedirectResponse
 
-app = FastAPI()
+
+app = FastAPI(
+    title= "Random Quotes API",
+    description="Random traditional quotes in Spanish and English",
+    version="0.0.1"
+)
 
 @app.get('/')
 def index():
@@ -12,7 +17,9 @@ def index():
 def randomrefran():
     refran_message = Refran.getRandomRefran()
     return {
-        "refran": refran_message
+        "language": "es/ES",
+        "type": "refran",
+        "text": refran_message
     }
     		
 
@@ -20,6 +27,8 @@ def randomrefran():
 def randomsaying():
     saying_message = Refran.getRandomSaying()
     return {  
-        "saying": saying_message
+        "language": "en/US",
+        "type": "saying",
+        "text": saying_message
     }
     		
