@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  web:
+    build: .
+    container_name: randomquote
+    restart: unless-stopped
+    # environment:
+      # ... PLACE HERE ALL EWNVIRONMENT VARIALBES !!!
+      # ... 
+    ports:
+      - "8383:8383"
+    volumes:
+      - '.:/app'
+
